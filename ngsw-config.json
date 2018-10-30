@@ -1,0 +1,57 @@
+{
+  "index": "/index.html",
+  "assetGroups": [
+    {
+    "name": "app",
+    "installMode": "prefetch",
+    "resources": {
+      "files": [
+        "/favicon.ico",
+        "/index.html",
+        "/*.css",
+        "/*.js"
+      ]
+    }
+  },
+  {
+    "name": "assets",
+    "installMode": "lazy",
+    "updateMode": "prefetch",
+    "resources": {
+      "files": [
+        "/assets/icons/**",
+        "/assets/images/**"
+      ],
+      "urls":[
+        "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css",
+        "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      ]
+    }
+  }
+],
+  "dataGroups":[
+    {
+      "name": "cache-first",
+      "urls":[        
+        "http://127.0.0.1:8080/assets/launchstatus.json"
+      ],
+      "cacheConfig":{
+        "strategy":"performance",
+        "maxSize":10,
+        "maxAge":"7d"
+      }
+    },    
+    {
+      "name": "api-first",
+      "urls":[        
+        "http://127.0.0.1:8080/assets/launchlibrary.json"
+      ],
+      "cacheConfig":{
+        "strategy" : "freshness",
+        "maxSize": 10,
+        "maxAge" : "1d",
+        "timeout" : "5s"
+      }
+    }
+  ]
+}

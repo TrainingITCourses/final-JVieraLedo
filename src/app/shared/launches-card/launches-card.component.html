@@ -1,0 +1,28 @@
+<div class="card" *ngIf="launch!=null">
+  <h5 class="card-header">{{launch.name}}</h5>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-sm-6">
+        <h5 class="card-title">Fecha del lanzamiento</h5>
+        <p class="card-text">{{launch.isostart | date: 'dd/MM/yyyy'}}</p>
+        <h5 class="card-title">Misiones:</h5>
+        <div *ngIf="launch.missions.length;else no_missions">
+          <p class="card-text" *ngFor="let mision of launch.missions;">
+            <strong>{{ mision.name }}</strong>
+            <span>{{ mision.description }}</span>
+          </p>
+        </div>
+        <ng-template #no_missions>
+          <div class="alert alert-info" role="alert">
+            No mission has been registered
+          </div>
+        </ng-template>
+      </div>
+      <div class="col-sm-6" *ngIf="launch.rocket">
+        <div class="text-center">
+          <img width="50%" [src]="launch.rocket.imageURL" class="rounded">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

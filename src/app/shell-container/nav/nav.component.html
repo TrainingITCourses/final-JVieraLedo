@@ -1,0 +1,29 @@
+<nav class="navbar navbar-dark bg-dark fixed-top">
+  <h2 class="navbar-brand">{{titulo}} <em>V.{{version}}</em></h2>
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="onClick()">Actualizar</button>
+</nav>
+<div class="container-fluid p-2">
+  <div class="card" *ngIf="rutas$ | async as route" style="margin-top: 5rem">
+    <div class="card-body">
+      <div class="row align-items-center">
+        <div class="col-8">
+          <h3 class="float-left">{{route?.mensaje}}</h3>
+        </div>
+        <div class="col-4">
+          <div class="btn-group float-right" role="group">
+            <button type="button" class="btn btn-secondary" *ngIf="route?.botonFechas" (click)="onClickFD()">
+              Fecha más reciente
+            </button>
+            <button type="button" class="btn btn-secondary" *ngIf="route?.botonFechas" (click)="onClickFA()">
+              Fecha más antigua
+            </button>
+            <button type="button" class="btn btn-secondary" *ngIf="route?.botonVolver" (click)="onClickV()">
+              << Volver
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

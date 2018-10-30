@@ -1,0 +1,121 @@
+//colors
+$color_pickled_bluewood_approx: rgba(137, 199, 255, 0);
+$color_vulcan_approx: #101422;
+$color_shakespeare_approx: #42a1da;
+
+//fonts
+$font_0: tahoma;
+
+//@extend-elements
+//original selectors
+//body, html
+%extend_1 {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: $color_pickled_bluewood_approx;
+}
+
+body {
+  @extend %extend_1;
+}
+
+html {
+  @extend %extend_1;
+}
+
+#cupcake {
+  flex-direction: row;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background-color: $color_pickled_bluewood_approx;
+}
+
+.letter {
+  font-size: 100px;
+  color: $color_vulcan_approx;
+  font-family: $font_0;
+  flex: none;
+  align-self: center;
+}
+
+.box {
+  display: flex;
+}
+
+.cupcakeCircle {
+  //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+  border-radius: 50%;
+  flex: none;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 100px;
+  background-color: $color_vulcan_approx;
+}
+
+.cupcakeInner {
+  //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+  border-radius: 50%;
+  flex: none;
+  align-self: center;
+  justify-content: center;
+  height: 50%;
+  width: 50%;
+  background-color: #42a1da;
+  -webkit-animation-name: cupcakeAnimate;
+  -webkit-animation-duration: 500ms;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+}
+
+.cupcakeCore {
+  //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+  border-radius: 50%;
+  flex: none;
+  align-self: center;
+  height: 25%;
+  width: 25%;
+  background-color: #101422;
+  -webkit-animation-name: coreAnimate;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+}
+
+.cupcake {
+  flex: none;
+}
+
+@-webkit-keyframes cupcakeAnimate {
+  to {
+    height: 90%;
+    width: 90%;
+  }
+}
+
+@keyframes cupcakeAnimate {
+  to {
+    height: 90%;
+    width: 90%;
+  }
+}
+
+@-webkit-keyframes coreAnimate {
+  to {
+    height: 90%;
+    width: 90%;
+  }
+}
+
+@keyframes coreAnimate {
+  to {
+    height: 90%;
+    width: 90%;
+  }
+}

@@ -1,0 +1,6 @@
+<div style="height: 100%" *ngIf="estados$ | async as states">
+  <jvl-states-list
+    [states]="estados$ | async"
+    relativePath='launches'>
+  </jvl-states-list>
+</div>
